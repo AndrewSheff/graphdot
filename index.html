@@ -1,0 +1,256 @@
+<html >
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js">
+    </script>
+    <script src="levels.js">
+    </script>
+    <script src="canvas.js">
+    </script>
+</head>
+
+<body onload="onload()">
+  
+    <div id="start" >
+        <p class="title" align="center">
+            GraphDot</p>
+        <div align="center">
+            <button onclick="start()">
+                <h2 class="button"> >>Начать игру<< </h2>
+            </button>
+        </div>
+    </div>
+    <canvas class="canvas" id="canvas"></canvas>
+  <div id="level1">
+    
+    <div class="equations" id="frlevelequation">
+     
+       <div class="equation-block4"> 
+        <p class="number">1)</p>
+         <div class="equation-block2"> 
+             
+           <div class="equation-style" id="1block1">y=<input id="1lev-1eq-1k" class="input" type="text" value="" size="1">x+<input id="1lev-1eq-2k" class="input" type="text" value="" size="1"></input><input id="1lev-1eq-3k" class="unviz" type="text" value="0" size="1"></input><input id="1lev-2eq-3k" class="unviz" type="text" value="0" size="1"></input><input id="1lev-3eq-3k" class="unviz" type="text" value="0" size="1"></input><input id="1lev-4eq-3k" class="unviz" type="text" value="0" size="1"></input></div>
+           <div class="equation-limitation" id="1block2"> -17≤x≤-10 </div>
+         </div>
+         <p class="number">2)</p>
+         <div class="equation-block2">
+           <div class="equation-style" id="2block1">y=<input id="1lev-2eq-1k" class="input" type="text" value="" size="1"></input>x+<input id="1lev-2eq-2k" class="input" type="text" value="" size="1"></input></div>
+           <div class="equation-limitation" id="2block2"> -10≤x≤-3 </div>
+         </div>
+       </div>
+       
+       <div>
+        <p class="number">3)</p>
+         <div class="equation-block2"> 
+           <div class="equation-style" id="3block1">y=<input id="1lev-3eq-1k" class="input" type="text" size="1"></input>x+<input id="1lev-3eq-2k" class="input" type="text" size="1"></input></div>
+           <div class="equation-limitation" id="3block2"> -3≤x≤9 </div>
+         </div>
+         <p class="number">4)</p>
+         <div class="equation-block2">
+           <div class="equation-style" id="4block1">y=<input id="1lev-4eq-1k" class="input" type="text" size="1"></input>x+<input id="1lev-4eq-2k" class="input" type="text" size="1"></input></div>
+           <div class="equation-limitation" id="4block2"> 9≤x≤20 </div>
+         </div>
+         
+       </div> 
+    </div> 
+  
+    <div class="level-number">
+      Уровень: 1
+    </div> 
+    <button onclick="lvlcheck(0)" id="1lev-check" class="check-button">
+      Пуск
+    </button>
+  </div> 
+    
+
+
+
+
+   <div id="level2">
+      <div class="equations" id="sclevelequation">
+       <div></div>
+         <div class="equation-block4"> 
+          <p class="number">1)</p>
+           <div class="equation-block2"> 
+               
+             <div class="equation-style" id="1block1">y=<input id="2lev-1eq-1k" class="input" type="text" value="" size="1">x+<input id="2lev-1eq-2k" class="input" type="text" value="" size="1"></input></input><input id="2lev-1eq-3k" class="unviz" type="text" value="0" size="1"></input><input id="2lev-2eq-3k" class="unviz" type="text" value="0" size="1"></input><input id="2lev-3eq-3k" class="unviz" type="text" value="0" size="1"></input><input id="2lev-4eq-3k" class="unviz" type="text" value="0" size="1"></div>
+             <div class="equation-limitation" id="1block2"> -12≤x≤-8 </div>
+           </div>
+           <p class="number">2)</p>
+           <div class="equation-block2">
+             <div class="equation-style" id="2block1">y=<input id="2lev-2eq-1k" class="input" type="text" value="" size="1"></input>x+<input id="2lev-2eq-2k" class="input" type="text" value="" size="1"></input></div>
+             <div class="equation-limitation" id="2block2"> -8≤x≤0 </div>
+           </div>
+         </div>
+         
+         <div>
+          <p class="number">3)</p>
+           <div class="equation-block2"> 
+             <div class="equation-style" id="3block1">y=<input id="2lev-3eq-1k" class="input" type="text" size="1"></input>x+<input id="2lev-3eq-2k" class="input" type="text" size="1"></input></div>
+             <div class="equation-limitation" id="3block2"> 0≤x≤8 </div>
+           </div>
+           <p class="number">4)</p>
+           <div class="equation-block2">
+             <div class="equation-style" id="4block1">y=<input id="2lev-4eq-1k" class="input" type="text" size="1"></input>x+<input id="2lev-4eq-2k" class="input" type="text" size="1"></input></div>
+             <div class="equation-limitation" id="4block2"> 8≤x≤15 </div>
+           </div>
+           
+         </div> 
+      </div>
+    
+      <div class="level-number">
+        Уровень: 2
+      </div> 
+      <button onclick="lvlcheck(1)" id="2lev-check" class="check-button">
+        Пуск
+      </button>
+    </div> 
+    
+    
+    
+    
+
+
+
+    <div id="level3">
+      <div class="equations" id="sclevelequation">
+       <div></div>
+         <div class="equation-block4"> 
+          <p class="number">1)</p>
+           <div class="equation-block2"> 
+               
+             <div class="equation-style" id="1block1">y=<input id="3lev-1eq-1k" class="input" type="text" value="" size="1">x+<input id="3lev-1eq-2k" class="input" type="text" value="" size="1"></input><input id="3lev-1eq-3k" class="unviz" type="text" value="0" size="1"></input><input id="3lev-3eq-3k" class="unviz" type="text" value="0" size="1"></input></div>
+             <div class="equation-limitation" id="1block2"> -14≤x≤-5 </div>
+           </div>
+           <p class="number">2)</p>
+           <div class="equation-block2">
+             <div class="equation-style" id="2block1">y=<input id="3lev-2eq-1k" class="input" type="text" value="" size="1"></input>х²+<input id="3lev-2eq-2k" class="input" type="text" value="" size="1"></input>x+<input id="3lev-2eq-3k" class="input" type="text" value="" size="1"></input></div>
+             <div class="equation-limitation" id="2block2"> -5≤x≤-3 </div>
+           </div>
+         </div>
+         
+         <div>
+          <p class="number">3)</p>
+           <div class="equation-block2"> 
+             <div class="equation-style" id="3block1">y=<input id="3lev-3eq-1k" class="input" type="text" size="1"></input>x+<input id="3lev-3eq-2k" class="input" type="text" size="1"></input></div>
+             <div class="equation-limitation" id="3block2"> -3≤x≤9 </div>
+           </div>
+           <p class="number">4)</p>
+           <div class="equation-block2">
+             <div class="equation-style" id="4block1">y=<input id="3lev-4eq-1k" class="input" type="text" value="" size="1"></input>х²+<input id="3lev-4eq-2k" class="input" type="text" value="" size="1"></input>x+<input id="3lev-4eq-3k" class="input" type="text" value="" size="1"></input></div>
+             <div class="equation-limitation" id="4block2"> 9≤x≤13 </div>
+           </div>
+           
+         </div> 
+      </div>
+    
+      <div class="level-number">
+        Уровень: 3
+      </div> 
+      <button onclick="lvlcheck(2)" id="3lev-check" class="check-button">
+        Пуск
+      </button>
+    </div>
+    
+    
+
+
+
+<div id="level4">
+      <div class="equations" id="sclevelequation">
+       <div></div>
+         <div class="equation-block4"> 
+          <p class="number">1)</p>
+           <div class="equation-block2"> 
+               
+             <div class="equation-style" id="1block1">y=<input id="4lev-1eq-1k" class="input" type="text" value="" size="1">х²+<input id="4lev-1eq-2k" class="input" type="text" value="" size="1"></input>x+<input id="4lev-1eq-3k" class="class" type="text" value="" size="1"></input></div>
+             <div class="equation-limitation" id="1block2"> -2≤x≤0 </div>
+           </div>
+           <p class="number">2)</p>
+           <div class="equation-block2">
+             <div class="equation-style" id="2block1">y=<input id="4lev-2eq-1k" class="input" type="text" value="" size="1"></input>х²+<input id="4lev-2eq-2k" class="input" type="text" value="" size="1"></input>x+<input id="4lev-2eq-3k" class="input" type="text" value="" size="1"></input></div>
+             <div class="equation-limitation" id="2block2"> 0≤x≤3 </div>
+           </div>
+         </div>
+         
+         <div>
+          <p class="number">3)</p>
+           <div class="equation-block2"> 
+            <div class="equation-style" id="1block1">y=<input id="4lev-3eq-1k" class="input" type="text" value="" size="1">х²+<input id="4lev-3eq-2k" class="input" type="text" value="" size="1"></input>x+<input id="4lev-3eq-3k" class="class" type="text" value="" size="1"></input></div>
+             <div class="equation-limitation" id="3block2"> 3≤x≤7 </div>
+           </div>
+           <p class="number">4)</p>
+           <div class="equation-block2">
+             <div class="equation-style" id="4block1">y=<input id="4lev-4eq-1k" class="input" type="text" value="" size="1"></input>х²+<input id="4lev-4eq-2k" class="input" type="text" value="" size="1"></input>x+<input id="4lev-4eq-3k" class="input" type="text" value="" size="1"></input></div>
+             <div class="equation-limitation" id="4block2"> 7≤x≤15 </div>
+           </div>
+           
+         </div> 
+      </div>
+    
+      <div class="level-number">
+        Уровень: 4
+      </div> 
+      <button onclick="lvlcheck(3)" id="4lev-check" class="check-button">
+        Пуск
+      </button>
+</div>   
+
+
+
+<div id="level5">
+  <div class="equations" id="sclevelequation">
+   <div></div>
+     <div class="equation-block4"> 
+      <p class="number">1)</p>
+       <div class="equation-block2"> 
+           
+         <div class="equation-style" id="1block1">y=<input id="5lev-1eq-1k" class="input" type="text" value="" size="1">х²+<input id="5lev-1eq-2k" class="input" type="text" value="" size="1"></input>x+<input id="5lev-1eq-3k" class="class" type="text" value="" size="1"></input></div>
+         <div class="equation-limitation" id="1block2"> -12≤x≤-8 </div>
+       </div>
+       <p class="number">2)</p>
+       <div class="equation-block2">
+         <div class="equation-style" id="2block1">y=<input id="5lev-2eq-1k" class="input" type="text" value="" size="1"></input>х²+<input id="5lev-2eq-2k" class="input" type="text" value="" size="1"></input>x+<input id="5lev-2eq-3k" class="input" type="text" value="" size="1"></input></div>
+         <div class="equation-limitation" id="2block2"> -8≤x≤-5 </div>
+       </div>
+     </div>
+     
+     <div>
+      <p class="number">3)</p>
+       <div class="equation-block2"> 
+        <div class="equation-style" id="1block1">y=<input id="5lev-3eq-1k" class="input" type="text" value="" size="1">х²+<input id="5lev-3eq-2k" class="input" type="text" value="" size="1"></input>x+<input id="5lev-3eq-3k" class="class" type="text" value="" size="1"></input></div>
+         <div class="equation-limitation" id="3block2"> -5≤x≤7 </div>
+       </div>
+       <p class="number">4)</p>
+       <div class="equation-block2">
+         <div class="equation-style" id="4block1">y=<input id="5lev-4eq-1k" class="input" type="text" value="" size="1"></input>х²+<input id="5lev-4eq-2k" class="input" type="text" value="" size="1"></input>x+<input id="5lev-4eq-3k" class="input" type="text" value="" size="1"></input></div>
+         <div class="equation-limitation" id="4block2"> 7≤x≤15 </div>
+       </div>
+       
+     </div> 
+  </div>
+
+  <div class="level-number">
+    Уровень: 5
+  </div> 
+  <button onclick="lvlcheck(4)" id="5lev-check" class="check-button">
+    Пуск
+  </button>
+</div>  
+
+
+
+   
+    <div id="end">
+        <p class="title" align="center">
+            Конец игры</p>
+        <div align="center">
+            <button onclick="end()" onclick="nuller()">
+                <h2 class="button"> >>Играть снова<< </h2>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
