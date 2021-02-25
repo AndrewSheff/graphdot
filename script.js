@@ -7,16 +7,6 @@ function onload() {
     for (var i = 0; i < arr.length; i++) {
         document.getElementById("level" + (i + 1)).style.display = "none";
     }
-    document.getElementById("1lev-1eq-3k").value=0;
-    document.getElementById("1lev-2eq-3k").value=0;
-    document.getElementById("1lev-3eq-3k").value=0;
-    document.getElementById("1lev-4eq-3k").value=0;
-    document.getElementById("2lev-1eq-3k").value=0;
-    document.getElementById("2lev-2eq-3k").value=0;
-    document.getElementById("2lev-3eq-3k").value=0;
-    document.getElementById("2lev-4eq-3k").value=0;
-    document.getElementById("3lev-1eq-3k").value=0;
-    document.getElementById("3lev-3eq-3k").value=0;
 }
 
 function reset() {
@@ -63,81 +53,75 @@ function end() {
 function lvlcheck(level) {
     var le=level
     r = 0
-    let frfr = document.getElementById((level + 1) + "lev-1eq-1k").value;
-    let scfr = document.getElementById((level + 1) + "lev-1eq-2k").value;
-    let frsc = document.getElementById((level + 1) + "lev-2eq-1k").value;
-    let scsc = document.getElementById((level + 1) + "lev-2eq-2k").value;
-    let frthd = document.getElementById((level + 1) + "lev-3eq-1k").value;
-    let scthd = document.getElementById((level + 1) + "lev-3eq-2k").value;
-    let frfth = document.getElementById((level + 1) + "lev-4eq-1k").value;
-    let scfth = document.getElementById((level + 1) + "lev-4eq-2k").value;
-    let thdsc = document.getElementById((level + 1) + "lev-2eq-3k").value;
-    let thdfth = document.getElementById((level + 1) + "lev-4eq-3k").value;
-    let thdfr = document.getElementById((level + 1) + "lev-1eq-3k").value;
-    let thdthd = document.getElementById((level + 1) + "lev-3eq-3k").value;
+
+   
+    let frfr = document.getElementById((level + 1) + "lev-1eq-1k");
+    let scfr = document.getElementById((level + 1) + "lev-1eq-2k");
+    let frsc = document.getElementById((level + 1) + "lev-2eq-1k");
+    let scsc = document.getElementById((level + 1) + "lev-2eq-2k");
+    let frthd = document.getElementById((level + 1) + "lev-3eq-1k");
+    let scthd = document.getElementById((level + 1) + "lev-3eq-2k");
+    let frfth = document.getElementById((level + 1) + "lev-4eq-1k");
+    let scfth = document.getElementById((level + 1) + "lev-4eq-2k");
+    let thdsc = document.getElementById((level + 1) + "lev-2eq-3k");
+        
+    let thdfth = document.getElementById((level + 1) + "lev-4eq-3k") || {value:""};
+    let thdfr = document.getElementById((level + 1) + "lev-1eq-3k") || {value:""};
+    let thdthd = document.getElementById((level + 1) + "lev-3eq-3k") || {value:""};
     
     document.querySelectorAll("input").forEach(function (e) {
         e.className = "input";
-        document.getElementById("1lev-2eq-3k").className="unviz";
-        document.getElementById("1lev-4eq-3k").className="unviz";
-        document.getElementById("1lev-1eq-3k").className="unviz";
-        document.getElementById("1lev-3eq-3k").className="unviz";
-        document.getElementById("2lev-2eq-3k").className="unviz";
-        document.getElementById("2lev-4eq-3k").className="unviz";
-        document.getElementById("2lev-1eq-3k").className="unviz";
-        document.getElementById("2lev-3eq-3k").className="unviz";
-        document.getElementById("3lev-1eq-3k").className="unviz";
-        document.getElementById("3lev-3eq-3k").className="unviz";
     });
-    if (frfr== ""){
-        document.getElementById((level + 1) + "lev-1eq-1k").className = "input-wrong";
+
+    if (frfr.value == ""){
+        frfr.className = "input-wrong";
     }
-    if (scfr== ""){
-        document.getElementById((level + 1) + "lev-1eq-2k").className = "input-wrong";
+    if (scfr.value == ""){
+        scfr.className = "input-wrong";
     }
-    if (frsc==""){
-        document.getElementById((level + 1) + "lev-2eq-1k").className = "input-wrong";
+    if (frsc.value==""){
+        frsc.className = "input-wrong";
     }
-    if (scsc==""){
-        document.getElementById((level + 1) + "lev-2eq-2k").className = "input-wrong";
+    if (scsc.value==""){
+        scsc.className = "input-wrong";
     }
-    if (frthd==""){
-        document.getElementById((level + 1) + "lev-3eq-1k").className = "input-wrong";
+    if (frthd.value==""){
+        frthd.className = "input-wrong";
     }
-    if (scthd==""){
-        document.getElementById((level + 1) + "lev-3eq-2k").className = "input-wrong";
+    if (scthd.value==""){
+        scthd.className = "input-wrong";
     }
-    if (frfth==""){
-        document.getElementById((level + 1) + "lev-4eq-1k").className = "input-wrong";
+    if (frfth.value==""){
+        frfth.className = "input-wrong";
     }
-    if (scfth==""){
-        document.getElementById((level + 1) + "lev-4eq-2k").className = "input-wrong";
+    if (scfth.value==""){
+        scfth.className = "input-wrong";
     }
-    if (thdfr==""){
-        document.getElementById((level + 1) + "lev-1eq-3k").className = "input-wrong";
+    if (thdfr.value==""){
+        thdfr.className = "input-wrong";
     }
-    if (thdsc==""){
-        document.getElementById((level + 1) + "lev-2eq-3k").className = "input-wrong";
+    if (thdsc.value==""){
+        thdsc.className = "input-wrong";
     }
-    if (thdthd==""){
-        document.getElementById((level + 1) + "lev-3eq-3k").className = "input-wrong";
+    if (thdthd.value==""){
+        thdthd.className = "input-wrong";
     }
-    if (thdfth==""){
-        document.getElementById((level + 1) + "lev-4eq-3k").className = "input-wrong";
+    if (thdfth.value==""){
+        thdfth.className = "input-wrong";
     }    
     //alert(frfr)
-    frfr = Number(frfr);
-    scfr = Number(scfr);
-    frsc = Number(frsc);
-    scsc = Number(scsc);
-    frthd = Number(frthd);
-    scthd = Number(scthd);
-    frfth = Number(frfth);
-    scfth = Number(scfr);
-    thdfr = Number(frsc);
-    thdsc = Number(scsc);
-    thdthd = Number(frthd);
-    thdfth = Number(scthd);
+    frfr = Number(frfr.value);
+    scfr = Number(scfr.value);
+    frsc = Number(frsc.value);
+    scsc = Number(scsc.value);
+    frthd = Number(frthd.value);
+    scthd = Number(scthd.value);
+    frfth = Number(frfth.value);
+    scfth = Number(scfr.value);
+    thdfr = Number(frsc.value);
+    thdsc = Number(scsc.value);
+    thdthd = Number(frthd.value);
+    thdfth = Number(scthd.value);
     //alert(frfr)
     //alert(scfr)
     //alert(thdfr)
