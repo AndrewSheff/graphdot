@@ -37,7 +37,10 @@ function start() {
     else {
         document.getElementById("start").style.display = "block";
     }
-    draw();
+    addcanvas();
+    grid();
+    var le=0
+    level_map(le);
 }
 function end() {
     if (document.getElementById("end").style.display == 'block') {
@@ -48,15 +51,18 @@ function end() {
     else {
         document.getElementById("end").style.display = "block";
     }
+    addcanvas();
+    grid();
+    var le=0
+    level_map(le);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 function lvlcheck(level) {
-
+    var le=level
     r = 0
-
     let frfr = document.getElementById((level + 1) + "lev-1eq-1k").value;
     let scfr = document.getElementById((level + 1) + "lev-1eq-2k").value;
     let frsc = document.getElementById((level + 1) + "lev-2eq-1k").value;
@@ -69,6 +75,7 @@ function lvlcheck(level) {
     let thdfth = document.getElementById((level + 1) + "lev-4eq-3k").value;
     let thdfr = document.getElementById((level + 1) + "lev-1eq-3k").value;
     let thdthd = document.getElementById((level + 1) + "lev-3eq-3k").value;
+    
     document.querySelectorAll("input").forEach(function (e) {
         e.className = "input";
         document.getElementById("1lev-2eq-3k").className="unviz";
@@ -183,8 +190,8 @@ function lvlcheck(level) {
     if (y <= arr[level].ogryend[5] && y >= arr[level].ogryend[6]) {
         r = r + 1
     }
-    //alert(r)
-    if (level == 4) {
+    
+    if (level == 4) { //end
         if (r == 8) {
             alert("Верно!");
             document.getElementById("level5").style.display = "none";
@@ -198,17 +205,26 @@ function lvlcheck(level) {
             //document.getElementById("level" + (level + 2)).style.display = "block";
         }
     }
-    if (level != 4) {
-        if (r == 8) {
-            alert("Верно!");
-            document.getElementById("level" + (level + 1)).style.display = "none";
-            document.getElementById("level" + (level + 2)).style.display = "block";
-        }
-        if (r != 8) {
-            alert("Неверно!")
-            //document.getElementById("level" + (level + 1)).style.display = "none";
-            //document.getElementById("level" + (level + 2)).style.display = "block";
-        }
+    if (level != 4) { //next level
+        animation(level)
+        // if (r == 8) {
+        //     alert("Верно!");
+        //     document.getElementById("level" + (level + 1)).style.display = "none";
+        //     document.getElementById("level" + (level + 2)).style.display = "block";
+        //     addcanvas();
+        //     grid();
+        //     le=le+1;
+        //     level_map(le);
+        // }
+        // if (r != 8) {
+        //     alert("Неверно!")
+        //      document.getElementById("level" + (level + 1)).style.display = "none";
+        //      document.getElementById("level" + (level + 2)).style.display = "block";
+        //      addcanvas();
+        //      grid();
+        //      le=le+1;
+        //      level_map(le);
+        // }
     }
 
 }

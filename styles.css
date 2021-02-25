@@ -1,20 +1,20 @@
+
 .title {
     font: bold 6em Arial, Tahome, sans-serif;
     margin-top: 20%;
 
 
 }
-@font-face {
-    font-family: Cambria; /* Гарнитура шрифта */
-    src: url(cambria.ttc); /* Путь к файлу со шрифтом */
-   }
+
 .button {
     font: 1em Arial, Tahome, sans-serif;
     text-align: centre;
 }
+
 .equations {
     font:  1.4em Arial, Tahome, sans-serif;
     display: inline-block;
+   
 }
 .equation-block4 {
     display: inline-block;
@@ -93,8 +93,7 @@
 }
 .canvas {
     border: 1px solid black;
-    height: 400px;
-    margin-left: ;
-    margin-right: ;
+    margin-left: auto;
+    margin-right: auto;
 }
 
