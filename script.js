@@ -29,7 +29,7 @@ function start() {
     }
     addcanvas();
     grid();
-    var le=0
+    var le = 0
     level_map(le);
 }
 function end() {
@@ -43,7 +43,7 @@ function end() {
     }
     addcanvas();
     grid();
-    var le=0
+    var le = 0
     level_map(le);
 }
 
@@ -51,77 +51,56 @@ function end() {
 
 
 function lvlcheck(level) {
-    var le=level
+    var le = level
     r = 0
 
-   
-    let frfr = document.getElementById((level + 1) + "lev-1eq-1k");
-    let scfr = document.getElementById((level + 1) + "lev-1eq-2k");
-    let frsc = document.getElementById((level + 1) + "lev-2eq-1k");
-    let scsc = document.getElementById((level + 1) + "lev-2eq-2k");
-    let frthd = document.getElementById((level + 1) + "lev-3eq-1k");
-    let scthd = document.getElementById((level + 1) + "lev-3eq-2k");
-    let frfth = document.getElementById((level + 1) + "lev-4eq-1k");
-    let scfth = document.getElementById((level + 1) + "lev-4eq-2k");
-    let thdsc = document.getElementById((level + 1) + "lev-2eq-3k");
-        
-    let thdfth = document.getElementById((level + 1) + "lev-4eq-3k") || {value:""};
-    let thdfr = document.getElementById((level + 1) + "lev-1eq-3k") || {value:""};
-    let thdthd = document.getElementById((level + 1) + "lev-3eq-3k") || {value:""};
-    
+    let obj = {};
+
+    obj.frfr = document.getElementById((level + 1) + "lev-1eq-1k");
+    obj.scfr = document.getElementById((level + 1) + "lev-1eq-2k");
+    obj.frsc = document.getElementById((level + 1) + "lev-2eq-1k");
+    obj.scsc = document.getElementById((level + 1) + "lev-2eq-2k");
+    obj.frthd = document.getElementById((level + 1) + "lev-3eq-1k");
+    obj.scthd = document.getElementById((level + 1) + "lev-3eq-2k");
+    obj.frfth = document.getElementById((level + 1) + "lev-4eq-1k");
+    obj.scfth = document.getElementById((level + 1) + "lev-4eq-2k");
+    obj.thdsc = document.getElementById((level + 1) + "lev-2eq-3k");
+
+    obj.thdfth = document.getElementById((level + 1) + "lev-4eq-3k");
+    obj.thdfr = document.getElementById((level + 1) + "lev-1eq-3k");
+    obj.thdthd = document.getElementById((level + 1) + "lev-3eq-3k");
+
     document.querySelectorAll("input").forEach(function (e) {
         e.className = "input";
     });
 
-    if (frfr.value == ""){
-        frfr.className = "input-wrong";
+    const pp = Object.entries(obj);
+    let iswrong = false;
+    for (i = 0; i < pp.length; i++) {
+        if (pp[i][1] != undefined && pp[i][1].value == "") {
+            pp[i][1].className = "input-wrong";
+            iswrong = true;
+        }
     }
-    if (scfr.value == ""){
-        scfr.className = "input-wrong";
+
+    if (iswrong) {
+        alert("ee");
+        return;
     }
-    if (frsc.value==""){
-        frsc.className = "input-wrong";
-    }
-    if (scsc.value==""){
-        scsc.className = "input-wrong";
-    }
-    if (frthd.value==""){
-        frthd.className = "input-wrong";
-    }
-    if (scthd.value==""){
-        scthd.className = "input-wrong";
-    }
-    if (frfth.value==""){
-        frfth.className = "input-wrong";
-    }
-    if (scfth.value==""){
-        scfth.className = "input-wrong";
-    }
-    if (thdfr.value==""){
-        thdfr.className = "input-wrong";
-    }
-    if (thdsc.value==""){
-        thdsc.className = "input-wrong";
-    }
-    if (thdthd.value==""){
-        thdthd.className = "input-wrong";
-    }
-    if (thdfth.value==""){
-        thdfth.className = "input-wrong";
-    }    
     //alert(frfr)
-    frfr = Number(frfr.value);
-    scfr = Number(scfr.value);
-    frsc = Number(frsc.value);
-    scsc = Number(scsc.value);
-    frthd = Number(frthd.value);
-    scthd = Number(scthd.value);
-    frfth = Number(frfth.value);
-    scfth = Number(scfr.value);
-    thdfr = Number(frsc.value);
-    thdsc = Number(scsc.value);
-    thdthd = Number(frthd.value);
-    thdfth = Number(scthd.value);
+
+    frfr = Number(obj.frfr.value);
+    scfr = Number(obj.scfr.value);
+    frsc = Number(obj.frsc.value);
+    scsc = Number(obj.scsc.value);
+    frthd = Number(obj.frthd.value);
+    scthd = Number(obj.scthd.value);
+    frfth = Number(obj.frfth.value);
+    scfth = Number(obj.scfr.value);
+    thdfr = Number(obj.frsc.value);
+    thdsc = Number(obj.scsc.value);
+    thdthd = Number(obj.frthd.value);
+    thdfth = Number(obj.scthd.value);
     //alert(frfr)
     //alert(scfr)
     //alert(thdfr)
@@ -174,7 +153,7 @@ function lvlcheck(level) {
     if (y <= arr[level].ogryend[5] && y >= arr[level].ogryend[6]) {
         r = r + 1
     }
-    
+
     if (level == 4) { //end
         if (r == 8) {
             alert("Верно!");
@@ -190,7 +169,22 @@ function lvlcheck(level) {
         }
     }
     if (level != 4) { //next level
-        animation(level)
+        const params = {
+            frfr,
+            scfr,
+            frsc,
+            scsc,
+            frthd,
+            scthd,
+            frfth,
+            scfth,
+            thdfr,
+            thdsc,
+            thdthd,
+            thdfth
+        };
+
+        animation(level, params)
         // if (r == 8) {
         //     alert("Верно!");
         //     document.getElementById("level" + (level + 1)).style.display = "none";

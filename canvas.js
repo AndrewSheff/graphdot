@@ -39,28 +39,15 @@ function grid() {
 
 
 
-function anim(level) {
-  level = 0
+function anim(level, params) {
   var graph = canvas.getContext('2d');
-  let frfr = document.getElementById((level + 1) + "lev-1eq-1k").value;
-  let scfr = document.getElementById((level + 1) + "lev-1eq-2k").value;
-  let frsc = document.getElementById((level + 1) + "lev-2eq-1k").value;
-  let scsc = document.getElementById((level + 1) + "lev-2eq-2k").value;
-  let frthd = document.getElementById((level + 1) + "lev-3eq-1k").value;
-  let scthd = document.getElementById((level + 1) + "lev-3eq-2k").value;
-  let frfth = document.getElementById((level + 1) + "lev-4eq-1k").value;
-  let scfth = document.getElementById((level + 1) + "lev-4eq-2k").value;
-  let thdsc = document.getElementById((level + 1) + "lev-2eq-3k").value;
-  let thdfth = document.getElementById((level + 1) + "lev-4eq-3k").value;
-  let thdfr = document.getElementById((level + 1) + "lev-1eq-3k").value;
-  let thdthd = document.getElementById((level + 1) + "lev-3eq-3k").value;
 
   if (xx < arr[0].x[1] * 22.5 + 630) {
     graph.moveTo(x1, y1);
     xx = x1
     xx = xx + 2.25
     xk = xk + 0.1
-    yy = frfr * xk * 22.5 + scfr * 22.5
+    yy = params.frfr * xk * 22.5 + params.scfr * 22.5
     yy = 225 - yy
     graph.lineTo(xx, yy);
     x1 = xx
@@ -68,12 +55,12 @@ function anim(level) {
     graph.strokeStyle = "#000";
     graph.stroke();
   }
-  if(xx >= arr[0].x[1] * 22.5 + 630  && xx < arr[0].x[2] * 22.5 + 630){
+  if (xx >= arr[0].x[1] * 22.5 + 630 && xx < arr[0].x[2] * 22.5 + 630) {
     graph.moveTo(x2, y2);
     xx = x1
     xx = xx + 2.25
     xk = xk + 0.1
-    yy = frsc * xk * 22.5 + scsc * 22.5
+    yy = params.frsc * xk * 22.5 + params.scsc * 22.5
     yy = 225 - yy
     graph.lineTo(xx, yy);
     x1 = xx
@@ -81,44 +68,31 @@ function anim(level) {
     graph.strokeStyle = "#000";
     graph.stroke();
   }
+
+  window.setTimeout(() => anim(level, params), 10);
   // if(){
   // animation(le)
   // }
 
 }
-function animation(level) {
-  let frfr = document.getElementById((level + 1) + "lev-1eq-1k").value;
-  let scfr = document.getElementById((level + 1) + "lev-1eq-2k").value;
-  let frsc = document.getElementById((level + 1) + "lev-2eq-1k").value;
-  let scsc = document.getElementById((level + 1) + "lev-2eq-2k").value;
-  let frthd = document.getElementById((level + 1) + "lev-3eq-1k").value;
-  let scthd = document.getElementById((level + 1) + "lev-3eq-2k").value;
-  let frfth = document.getElementById((level + 1) + "lev-4eq-1k").value;
-  let scfth = document.getElementById((level + 1) + "lev-4eq-2k").value;
-  let thdsc = document.getElementById((level + 1) + "lev-2eq-3k").value;
-  let thdfth = document.getElementById((level + 1) + "lev-4eq-3k").value;
-  let thdfr = document.getElementById((level + 1) + "lev-1eq-3k").value;
-  let thdthd = document.getElementById((level + 1) + "lev-3eq-3k").value;
-
+function animation(level, params) {
   var speed = 10
+
   xx = 0
   yy = 0
   xk = arr[0].x[0]
   x1 = arr[level].x[0] * 22.5 + 630 //перевод в канвас координаты
   y1 = 225 - arr[level].ogryend[0] * 22.5
   x2 = arr[level].x[1] * 22.5 + 630
-  y2 = 225 - arr[level].first(frfr, scfr, thdfr) * 22.5
+  y2 = 225 - arr[level].first(params.frfr, params.scfr, params.thdfr) * 22.5
   x3 = arr[level].x[2] * 22.5 + 630
-  y3 = 225 - arr[level].two(frsc, scsc, thdsc) * 22.5
+  y3 = 225 - arr[level].two(params.frsc, params.scsc, params.thdsc) * 22.5
   x4 = arr[level].x[3] * 22.5 + 630
-  y4 = 225 - arr[level].three(frthd, scthd, thdthd) * 22.5
+  y4 = 225 - arr[level].three(params.frthd, params.scthd, params.thdthd) * 22.5
 
-  window.setInterval(anim, speed)
-
-
-
-
+  window.setTimeout(() => anim(level, params), speed)
 }
+
 function level_map(le) {
   var pen = canvas.getContext('2d');
   if (le == 0) {
