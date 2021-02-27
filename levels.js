@@ -27,7 +27,7 @@ var arr = [
         },
     },
     {
-        x: [-12, -8, 0, 7, 15], ogryend: [2, 3, 3, -5, -5, -4, -4.67, -7, -9.67],
+        x: [-12, -8, 0, 7, 13], ogryend: [2, 3, 3, -5, -5, -4, -4.67, -7, -9.67],
         prefirst(frfr, scfr) {
             return frfr * this.x[0] + scfr;
         },
@@ -54,7 +54,7 @@ var arr = [
         },
     },
     {
-        x: [-13, -5, -3, 9, 13], ogryend: [3, 1, 1, -3, -3, 3, 3, -1, -13],
+        x: [-13, -5, -3, 9, 11], ogryend: [3, 1, 1, -3, -3, 3, 3, -1, -13],
         prefirst(frfr, scfr) {
             return frfr * this.x[0] + scfr;
         },
@@ -82,7 +82,7 @@ var arr = [
     },
 
     {
-        x: [-2, 0, 3, 7, 15], ogryend: [-1, -4, -6, 6, 3, -3, -5, 12, 5],
+        x: [-2, 0, 3, 7, 13], ogryend: [-1, -4, -6, 6, 3, -3, -5, 12, 5],
         prefirst(frfr, scfr, thdfr) {
             return frfr * this.x[0] * this.x[0] + scfr * this.x[0] + thdfr;
         },
@@ -109,7 +109,7 @@ var arr = [
         },
     },
     {
-        x: [-12, -8, -5, 7, 15], ogryend: [1, 5.88, 3, -3, -5, 6, 4, -4, -11],
+        x: [-12, -8, -5, 7, 13], ogryend: [1, 5.88, 3, -3, -5, 6, 4, -4, -11],
         prefirst(frfr, scfr, thdfr) {
             return frfr * this.x[0] * this.x[0] + scfr * this.x[0] + thdfr;
         },

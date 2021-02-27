@@ -48,14 +48,26 @@ function end() {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
+function ok4(level,le){
+    alert("Верно!");
+    document.getElementById("level" + (level + 1)).style.display = "none";
+    document.getElementById("level" + (level + 2)).style.display = "block";
+    addcanvas();
+    grid();
+    le=le+1;
+    level_map(le);
+}
+function ok5(level,le){
+    alert("Верно!");
+    document.getElementById("level5").style.display = "none";
+    document.getElementById("canvas").style.display = "none";
+    document.getElementById("end").style.display = "block";
+    reset();
+}
 function lvlcheck(level) {
     var le = level
     r = 0
-
     let obj = {};
-
     obj.frfr = document.getElementById((level + 1) + "lev-1eq-1k");
     obj.scfr = document.getElementById((level + 1) + "lev-1eq-2k");
     obj.frsc = document.getElementById((level + 1) + "lev-2eq-1k");
@@ -65,7 +77,6 @@ function lvlcheck(level) {
     obj.frfth = document.getElementById((level + 1) + "lev-4eq-1k");
     obj.scfth = document.getElementById((level + 1) + "lev-4eq-2k");
     obj.thdsc = document.getElementById((level + 1) + "lev-2eq-3k");
-
     obj.thdfth = document.getElementById((level + 1) + "lev-4eq-3k");
     obj.thdfr = document.getElementById((level + 1) + "lev-1eq-3k");
     obj.thdthd = document.getElementById((level + 1) + "lev-3eq-3k");
@@ -84,7 +95,7 @@ function lvlcheck(level) {
     }
 
     if (iswrong) {
-        alert("ee");
+        alert("Введите все коэффициенты");
         return;
     }
     //alert(frfr)
@@ -96,11 +107,21 @@ function lvlcheck(level) {
     frthd = Number(obj.frthd.value);
     scthd = Number(obj.scthd.value);
     frfth = Number(obj.frfth.value);
-    scfth = Number(obj.scfr.value);
-    thdfr = Number(obj.frsc.value);
-    thdsc = Number(obj.scsc.value);
-    thdthd = Number(obj.frthd.value);
-    thdfth = Number(obj.scthd.value);
+    scfth = Number(obj.scfth.value);
+    if (level>1){
+        if (level>2){
+            thdfr = Number(obj.thdfr.value);
+            thdthd = Number(obj.thdthd.value);
+        }
+    thdsc = Number(obj.thdsc.value);
+    thdfth = Number(obj.thdfth.value);
+    }
+    if (level<=1){
+        thdfr=0
+        thdsc=0
+        thdthd=0
+        thdfth=0
+    }
     //alert(frfr)
     //alert(scfr)
     //alert(thdfr)
@@ -124,11 +145,11 @@ function lvlcheck(level) {
     }
     //alert(r)
     y = arr[level].four(frfth, scfth, thdfth);
-    //alert(y)
     if (y <= arr[level].ogryend[7] && y >= arr[level].ogryend[8]) {
         r = r + 1
     }
     //alert(r)
+    
     /////////////////////////////////////////////////
     y = arr[level].prefirst(frfr, scfr, thdfr);
     if (y == arr[level].ogryend[0]) {
@@ -148,19 +169,29 @@ function lvlcheck(level) {
         r = r + 1
     }
 
-
+    
     y = arr[level].prefour(frfth, scfth, thdfth)
     if (y <= arr[level].ogryend[5] && y >= arr[level].ogryend[6]) {
         r = r + 1
     }
-
+    const params = {
+        frfr,
+        scfr,
+        frsc,
+        scsc,
+        frthd,
+        scthd,
+        frfth,
+        scfth,
+        thdfr,
+        thdsc,
+        thdthd,
+        thdfth
+    };
     if (level == 4) { //end
         if (r == 8) {
-            alert("Верно!");
-            document.getElementById("level5").style.display = "none";
-            document.getElementById("canvas").style.display = "none";
-            document.getElementById("end").style.display = "block";
-            reset();
+            animation(level, params,le)
+            
         }
         if (r != 8) {
             alert("Неверно!")
@@ -169,40 +200,16 @@ function lvlcheck(level) {
         }
     }
     if (level != 4) { //next level
-        const params = {
-            frfr,
-            scfr,
-            frsc,
-            scsc,
-            frthd,
-            scthd,
-            frfth,
-            scfth,
-            thdfr,
-            thdsc,
-            thdthd,
-            thdfth
-        };
-
-        animation(level, params)
-        // if (r == 8) {
-        //     alert("Верно!");
-        //     document.getElementById("level" + (level + 1)).style.display = "none";
-        //     document.getElementById("level" + (level + 2)).style.display = "block";
-        //     addcanvas();
-        //     grid();
-        //     le=le+1;
-        //     level_map(le);
-        // }
-        // if (r != 8) {
-        //     alert("Неверно!")
-        //      document.getElementById("level" + (level + 1)).style.display = "none";
-        //      document.getElementById("level" + (level + 2)).style.display = "block";
-        //      addcanvas();
-        //      grid();
-        //      le=le+1;
-        //      level_map(le);
-        // }
+        
+        if (r != 8) {
+            alert("Неверно!")
+        }
+        
+        if (r == 8) {
+            animation(level, params,le)
+            
+        }
+        
     }
 
 }

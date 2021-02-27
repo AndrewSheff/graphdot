@@ -10,12 +10,17 @@ function grid() {
   for (var x = -0.5; x < 1260; x += 22.5) {
     grid.moveTo(x, 0);
     grid.lineTo(x, 450);
-    grid.fillText((x + 0.5), x, 225);
+    let xn=x/22.5+0.5/22.5-28
+    if (xn!=0){
+    grid.fillText(xn, x, 223);
+    }
   }
+  
   for (var y = -0.5; y < 450; y += 22.5) {
     grid.moveTo(0, y);
     grid.lineTo(1260, y);
-    grid.fillText((y + 0.5), 630, y);
+    let yn=y+0.5
+    grid.fillText((10-yn/22.5), 632, (y-2));
   }
 
   grid.strokeStyle = "#D1D1D1";
@@ -39,48 +44,203 @@ function grid() {
 
 
 
-function anim(level, params) {
+function anim(level, params,le) {
   var graph = canvas.getContext('2d');
-
-  if (xx < arr[0].x[1] * 22.5 + 630) {
-    graph.moveTo(x1, y1);
-    xx = x1
-    xx = xx + 2.25
-    xk = xk + 0.1
-    yy = params.frfr * xk * 22.5 + params.scfr * 22.5
-    yy = 225 - yy
-    graph.lineTo(xx, yy);
-    x1 = xx
-    y1 = yy
-    graph.strokeStyle = "#000";
-    graph.stroke();
+  if(level<=1){
+    if (xx <= arr[level].x[1] * 22.5 + 630) {
+      graph.moveTo(x1, y1);
+      xx = x1
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frfr * xk * 22.5 + params.scfr * 22.5
+      yy = 225 - yy
+      
+      graph.lineTo(xx, yy);
+      x1 = xx
+      y1 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[1] * 22.5 + 630 && xx < arr[level].x[2] * 22.5 + 630) {
+      graph.moveTo(x2, y2);
+      xx = x2
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frsc * xk * 22.5 + params.scsc * 22.5
+      yy = 225 - yy
+      graph.lineTo(xx, yy);
+      x2 = xx
+      y2 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[2] * 22.5 + 630 && xx < arr[level].x[3] * 22.5 + 630) {
+      graph.moveTo(x3, y3);
+      xx = x3
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frthd * xk * 22.5 + params.scthd * 22.5
+      yy = 225 - yy
+      graph.lineTo(xx, yy);
+      x3 = xx
+      y3 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[3] * 22.5 + 630 && xx < arr[level].x[4] * 22.5 + 630) {
+      graph.moveTo(x4, y4);
+      xx = x4
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frfth * xk * 22.5 + params.scfth * 22.5
+      yy = 225 - yy
+      graph.lineTo(xx, yy);
+      x4 = xx
+      y4 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[4] * 22.5 + 630){
+      ok4(level,le)
+    }
   }
-  if (xx >= arr[0].x[1] * 22.5 + 630 && xx < arr[0].x[2] * 22.5 + 630) {
-    graph.moveTo(x2, y2);
-    xx = x1
-    xx = xx + 2.25
-    xk = xk + 0.1
-    yy = params.frsc * xk * 22.5 + params.scsc * 22.5
-    yy = 225 - yy
-    graph.lineTo(xx, yy);
-    x1 = xx
-    y1 = yy
-    graph.strokeStyle = "#000";
-    graph.stroke();
+  if (level==2){
+    if (xx <= arr[level].x[1] * 22.5 + 630) {
+      graph.moveTo(x1, y1);
+      xx = x1
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frfr * xk * 22.5 + params.scfr * 22.5
+      yy = 225 - yy
+      
+      graph.lineTo(xx, yy);
+      x1 = xx
+      y1 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[1] * 22.5 + 630 && xx < arr[level].x[2] * 22.5 + 630) {
+      graph.moveTo(x2, y2);
+      xx = x2
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frsc * xk*xk* 22.5 + params.scsc *xk* 22.5 + params.thdsc*22.5
+      yy = 225 - yy
+      
+      graph.lineTo(xx, yy);
+      x2 = xx
+      y2 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[2] * 22.5 + 630 && xx < arr[level].x[3] * 22.5 + 630) {
+      graph.moveTo(x3, y3);
+      xx = x3
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frthd * xk * 22.5 + params.scthd * 22.5
+      yy = 225 - yy
+      
+      graph.lineTo(xx, yy);
+      x3 = xx
+      y3 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[3] * 22.5 + 630 && xx < arr[level].x[4] * 22.5 + 630) {
+      graph.moveTo(x4, y4);
+      xx = x4
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frfth * xk*xk* 22.5 + params.scfth *xk* 22.5 + params.thdfth *22.5
+      yy = 225 - yy
+      graph.lineTo(xx, yy);
+      x4 = xx
+      y4 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[4] * 22.5 + 630){
+      ok4(level,le)
+    }
   }
-
-  window.setTimeout(() => anim(level, params), 10);
+  if (level>2){
+    if (xx <= arr[level].x[1] * 22.5 + 630) {
+      graph.moveTo(x1, y1);
+      xx = x1
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frfr * xk*xk* 22.5 + params.scfr *xk* 22.5 + params.thdfr*22.5
+      yy = 225 - yy
+      
+      graph.lineTo(xx, yy);
+      x1 = xx
+      y1 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[1] * 22.5 + 630 && xx < arr[level].x[2] * 22.5 + 630) {
+      graph.moveTo(x2, y2);
+      xx = x2
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frsc * xk*xk* 22.5 + params.scsc *xk* 22.5 + params.thdsc*22.5
+      yy = 225 - yy
+      
+      graph.lineTo(xx, yy);
+      x2 = xx
+      y2 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[2] * 22.5 + 630 && xx < arr[level].x[3] * 22.5 + 630) {
+      graph.moveTo(x3, y3);
+      xx = x3
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frthd * xk*xk* 22.5 + params.scthd *xk* 22.5 + params.thdthd*22.5
+      yy = 225 - yy
+      
+      graph.lineTo(xx, yy);
+      x3 = xx
+      y3 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[3] * 22.5 + 630 && xx < arr[level].x[4] * 22.5 + 630) {
+      graph.moveTo(x4, y4);
+      xx = x4
+      xx = xx + 2.25
+      xk = xk + 0.1
+      yy = params.frfth * xk*xk* 22.5 + params.scfth *xk* 22.5 + params.thdfth *22.5
+      yy = 225 - yy
+      graph.lineTo(xx, yy);
+      x4 = xx
+      y4 = yy
+      graph.strokeStyle = "#000";
+      graph.stroke();
+    }
+    if (xx >= arr[level].x[4] * 22.5 + 630){
+      if(level==4){
+        ok5(level,le)
+      }
+      if(level==3){
+        ok4(level,le)
+      }
+    }
+  }
+  if (xx <arr[level].x[4] * 22.5 + 630)
+  window.setTimeout(() => anim(level, params,le), 10);
   // if(){
   // animation(le)
   // }
 
 }
-function animation(level, params) {
+function animation(level, params,le) {
   var speed = 10
 
-  xx = 0
-  yy = 0
-  xk = arr[0].x[0]
+  
+  xk = arr[level].x[0]
   x1 = arr[level].x[0] * 22.5 + 630 //перевод в канвас координаты
   y1 = 225 - arr[level].ogryend[0] * 22.5
   x2 = arr[level].x[1] * 22.5 + 630
@@ -89,8 +249,9 @@ function animation(level, params) {
   y3 = 225 - arr[level].two(params.frsc, params.scsc, params.thdsc) * 22.5
   x4 = arr[level].x[3] * 22.5 + 630
   y4 = 225 - arr[level].three(params.frthd, params.scthd, params.thdthd) * 22.5
-
-  window.setTimeout(() => anim(level, params), speed)
+  xx = x1
+  yy = y1
+  window.setTimeout(() => anim(level, params,le), speed)
 }
 
 function level_map(le) {
@@ -154,8 +315,8 @@ function level_map(le) {
     pen.strokeRect(922.5, 382.5, 45, 45); //end box stroke
   }
   if (le == 2) {
-    pen.moveTo(314.5, 157); //start dot
-    pen.arc(314.5, 157, 2.5, 0, Math.PI * 2, false); //dot
+    pen.moveTo(337, 157); //start dot
+    pen.arc(337, 157, 2.5, 0, Math.PI * 2, false); //dot
     pen.fillStyle = "#000";
     pen.fill();
 
